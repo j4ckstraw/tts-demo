@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>
+			TTS Demo
+		</title>
+	</head>
+	<body>
+		<input type="text" name="text">
+		<a href="#" class="say"> Say it!</a>
+
+		<audio src="" class="speech" hidden></audio>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+		<script>
+			$(function() {
+				$('a.say').on('click',function(e){
+					e.preventDefault();
+					var text=$('input[name="text"]').val();
+					// text = encodeURIComponent(text);
+					console.log(text);
+					// var url="https://translate.google.com/translate_tts?ie=UTF-8&tl=zh-CN&client=tw-ob&q=" + text;
+					var url="http://fanyi.baidu.com/gettts?lan=en&&source=web&text=" + text;
+					$('audio').attr('src',url).get(0).play();
+				});
+			});
+		</script>
+		<br/>
+		<a href="https://stackoverflow.com/questions/35002003/how-to-use-google-translate-tts-with-the-new-v2-api">Refer<a>
+	</body>
+</html>
